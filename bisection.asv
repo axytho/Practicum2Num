@@ -14,7 +14,7 @@ zeroList = [a, b];
 for k = 1:m
     k
     if k > 1
-        functionk0 = A(k, k).*[0, functionk1] - [functionk1, 0] - A(k, k-1)^2 .* [0,0, functionk2];    
+        functionk0 = A(k, k)*[0, functionk1] - [functionk1, 0] + A(k, k-1)^2 * [0,0, functionk2];    
     else
         functionk0 = [-1, A(k, k)];
     end 
