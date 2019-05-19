@@ -6,6 +6,7 @@
 
 \usepackage{mathtools}
 \usepackage{amssymb}
+\usepackage[ruled]{algorithm2e}
 
 
 \pagestyle{plain}
@@ -91,10 +92,28 @@ Nu we deze handige eigenschappen hebben bewezen, kunnen we ze gebruiken om een e
 \[
 	Q^{(k)} = (T^{(k)}_1)^T(T^{(k)}_2)^T \dots (T^{(k)}_m)^T 
 \]
-Eens deze bepaald is kunnen we dan $A^{(k)}$ bepalen uit de berekende $R^{(k)}$ en de givens-rotatie matrices.
+Eens deze bepaald is kunnen we dan $A^{(k)}$ bepalen uit de berekende $R^{(k)}$ en de givens-rotatie matrices (zie ook algoritme 1). 
 
 \noindent Het bepalen van van de matrix  $A^{(k-1)} - \mu ^{(k)}I$ heeft exact $m$ optellingen en $m$ vermenigvuldigingen.
 Het bepalen van de $m$ givens-rotaties is iets complexer maar ook een operatie van orde $O(m)$. De hieruit bepaalde $R^{(k)}$ en $T^{(k)}_1\dots T^{(k)}_m$ kunnen dan efficiënt vermenigvuldigd worden gezien er bij de $T^{(k)}_i$ matrices steeds slechts 2 niet diagonaal elementen verschillen van nul. Hieruit volgt dat $R^{(k)}Q^{(k)}$ opnieuw orde $O(m)$ is. Dan is de optelling met $\mu ^{(k)}I$ ook nog van orde $O(m)$ waardoor het volledig algoritme van orde $O(m)$ is.
+
+\begin{algorithm}[H]
+	\caption{Iteratie in QR-algoritme}
+	\KwIn{$A^{(k-1)}$ tridiagonaal en symmetrisch, $\mu ^{(k)}$}
+	\KwOut{$A^{(k)}$}
+	\Begin{
+		$A^{(k-1)} \leftarrow A^{(k-1)} - \mu ^{(k)}I$\\
+		\For{$i = 1 \dots m$}{
+			$T_i \leftarrow$ Givens rotatie die element $A^{(k-1)}[i+1,i]$ nul maakt.	\\
+			$A^{(k-1)} \leftarrow T_i A^{(k-1)}$ \\
+		}
+		$A^{(k)} \leftarrow A^{(k-1)}$\\		
+		\For{$i = m \dots 1$}{
+			$A^{(k)} \leftarrow  A^{(k)}(T_i)^T$\\
+		}
+		$A^{(k)} \leftarrow$ $A^{(k)} + \mu ^{(k)}I$\\
+	}	
+\end{algorithm}
 
 \section{Alternatieve eigenwaardenalgoritmen}
 	We zagen reeds de Rayleigh quotiënt iteratie en QR-algoritme voor het vinden van eigenwaarden. Er bestaan echter nog andere algoritmes om de eigenwaarden van een symmetrische matrix te bepalen. We bespreken hieronder zo een algoritme.
