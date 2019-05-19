@@ -1,0 +1,4 @@
+function [polynomSum] = polynomAdd(polynom1,polynom2, polynom3)
+poly
+end
+

@@ -1,11 +1,11 @@
-function result = bisect(funcHandle, a, b, tol, lowBound, highBound)
+function result = bisect(polynomial, a, b, tol, lowBound, highBound)
 %BISECT Summary of this function goes here
 %   Detailed explanation goes here
 
 done = false;
 while ((b-a)>tol && not(done))
-    ya = funcHandle(a);
-    yb = funcHandle(b);
+    ya = polyval(polynomial,a);
+    yb = polyval(polynomial,b);
     if (ya == 0)
         result = a; % We're not doing b = a and then letting it roll because that causes issue with division
         done = true;
@@ -30,12 +30,12 @@ while ((b-a)>tol && not(done))
             ya
             b
             yb
-            ME = MException('MyComponent:bisectionError', 'Not able to bisect!');
-            throw(ME)
+            %ME = MException('MyComponent:bisectionError', 'Not able to bisect!');
+            %throw(ME)
         end
     end
     c = (a+b)/2;
-    if (sign(ya) == sign(funcHandle(c)))
+    if (sign(ya) == sign(polyval(polynomial,c)));
         a = c;
     else
         b = c;

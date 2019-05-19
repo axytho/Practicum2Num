@@ -1,15 +1,15 @@
-numberPoints= 2;
-nList = 10*2.^(1:numberPoints);
+numberPoints= 10;
+nList = 40.*(1:numberPoints);
 bisectionTime = zeros(numberPoints);
 QRTime = zeros(numberPoints);
 for i = 1:numberPoints
     A = tridiagonal(nList(i));
    tic;
-   bisection(A, 0, 0.0001, 10e-10);
+   bisection(A, 0, 1, eps(5));
    bisectionTime(i) = toc;
-   tic;
-   qr_shiftall(A);
-   QRTime(i) = toc;
+   %tic;
+   %qr_shiftall(A);
+   %QRTime(i) = toc;
 end
-semilogx(nList, bisectionTime, nList, QRTime)
+plot(nList, bisectionTime)
 legend("bisection", "QRtime")
