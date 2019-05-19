@@ -163,6 +163,9 @@ Het bepalen van de $m$ givens-rotaties is iets complexer maar ook een operatie v
 		
 \subsubsection{Implementatie van het algoritme}
 \subsubsection{Vergelijking met het QR-algoritme}
+\subsubsection{Problemen met de implementatie: recursie van het polynomiaal}
+Bij de implementatie van de bisectie-methode in MATLAB kwamen we tegenover enkele interessante problemen te staan. Een eerste was dat het programma exponentieel vertraagde naarmate de matrix groter werd. Rond n=25 duurde een volledige oplossing al enkele seconden en n=30 duurde zolang dat het niet echt mogelijk was om nog grotere matrices te berekenen. Deze exponentieel stijgende rekentijd klopt natuurlijk niet met de bewering dat de bisectie methode werkt volgens $O(nlog(\epsilon_{mach}))$. Na grondig de code na te kijken bleek dat doordat we de polynoom als een functie bewaren, elke keer dat de functie opgeroepen wordt, 2 andere functies uit de vorige stappen worden opgeroepen om een nieuw resultaat te geven. Omdat hun functiewaarden nergens worden bewaard leidt dit tot $O(2^{n})$ operaties, waardoor het dus onmogelijk wordt om matrices groter dan dimensie 30 uit te rekenen. De oplossing voor dit probleem was de functies te vervangen door lijsten die polynomen voorstellen en deze polynomen dan samen te voegen zodat de berekening van een eigenwaarde voor een gegeven matrix weer $O(nlog(\epsilon_{mach}))$ wordt.
+
 
 \section{Iteratieve methoden}
 \subsection{De Arnoldi methode}
