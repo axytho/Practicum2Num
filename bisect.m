@@ -24,18 +24,29 @@ while ((b-a)>tol && not(done))
             result = b;
         end
         if (a ~= lowBound && b ~= highBound)
-            lowBound
-            highBound
-            a
-            ya
-            b
-            yb
-            %ME = MException('MyComponent:bisectionError', 'Not able to bisect!');
-            %throw(ME)
+
+            if sign(polyval(polynomial,a- tol)) ~= sign(ya)
+                done = true;
+                result = a;
+            elseif sign(polyval(polynomial,b+ tol)) ~= sign(yb)
+                done = true;
+                result = b;
+            else
+                lowBound
+                highBound
+                a
+                ya
+                b
+                yb               
+                polyval(polynomial,a- tol)
+                polyval(polynomial,b + tol)
+                ME = MException('MyComponent:bisectionError', 'Not able to bisect!');
+                throw(ME)
+            end   
         end
     end
     c = (a+b)/2;
-    if (sign(ya) == sign(polyval(polynomial,c)));
+    if (sign(ya) == sign(polyval(polynomial,c)))
         a = c;
     else
         b = c;
