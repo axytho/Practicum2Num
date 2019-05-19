@@ -3,9 +3,9 @@ function result = bisect(polynomial, a, b, tol, lowBound, highBound)
 %   Detailed explanation goes here
 
 done = false;
+ya = polyval(polynomial,a);
+yb = polyval(polynomial,b);
 while ((b-a)>tol && not(done))
-    ya = polyval(polynomial,a);
-    yb = polyval(polynomial,b);
     if (ya == 0)
         result = a; % We're not doing b = a and then letting it roll because that causes issue with division
         done = true;
@@ -26,11 +26,19 @@ while ((b-a)>tol && not(done))
         if (a ~= lowBound && b ~= highBound)
 
             if sign(polyval(polynomial,a- tol)) ~= sign(ya)
+                warning('Zero not in interval!')
                 done = true;
                 result = a;
             elseif sign(polyval(polynomial,b+ tol)) ~= sign(yb)
+                warning('Zero not in interval!')
                 done = true;
                 result = b;
+            elseif sign(polyval(polynomial,a + tol)) ~= sign(ya)
+                ME = MException('MyComponent:bisectionError', 'Two zeros in interval on left!');
+                throw(ME)
+            elseif sign(polyval(polynomial,b - tol)) ~= sign(yb)
+                ME = MException('MyComponent:bisectionError', 'Two zeros in interval on right!');
+                throw(ME)
             else
                 lowBound
                 highBound
@@ -46,10 +54,13 @@ while ((b-a)>tol && not(done))
         end
     end
     c = (a+b)/2;
-    if (sign(ya) == sign(polyval(polynomial,c)))
+    yc = polyval(polynomial,c);
+    if (sign(ya) == sign(yc))
         a = c;
+        ya = yc;
     else
         b = c;
+        yb = yc;
     end
 end
 if not(done)

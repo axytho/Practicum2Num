@@ -1,4 +1,4 @@
-numberPoints= 3;
+numberPoints= 1;
 nList = 40.*(1:numberPoints);
 bisectionTime = zeros(numberPoints);
 QRTime = zeros(numberPoints);
