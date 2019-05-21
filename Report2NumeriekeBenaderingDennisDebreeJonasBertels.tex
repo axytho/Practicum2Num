@@ -129,18 +129,19 @@ Het bepalen van de $m$ givens-rotaties is iets complexer maar ook een operatie v
 		\lambda _j^{(k)} < \lambda_j^{(k-1)} < \lambda_{j+1}^{(k)}
 	\end{equation}
 	
-	Deze eigenschap is cruciaal in de implementatie van de bisectie-methode, dit kunnen we zo inzien:
-	Als we de eigenwaarden van $A^{(k-1)}$ weten, kennen we automatisch de intervallen waarin we de eigenwaarden van $A^{(k)}$ moeten zoeken, dit komt neer op de nulpunten zoeken van de karakteristieke polynoom van $A^{(k)}$ binnen die gekende intervallen.
+	\noindent Hiermee kunnen we makkelijk bepalen hoeveel eigenwaarden er zich bevinden in een bepaald interval $[a,b)$. Uit deze interlacing eigenschap kan je inzien dat je het aantal eigenwaarden die kleiner zijn dan nul kan bepalen door het tellen hoevaak het teken van de determinant veranderd bij als je die voor iedere submatrix achtereenvolgend uitrekent. We weten dat de determinant van een matrix gelijk is aan het product van eigenwaarden van die matrix want:
 	
-	\noindent We weten namelijk dat als we de eigenwaarden van $A^{(k-1)}: \lambda _1^{(k-1)} < \lambda _2^{(k-1)} < \dots < \lambda _k^{(k-1)}$ kennen en we zoeken de eigenwaarden binnen het gesloten interval $[a,b]$, dan:
 	\begin{align*}
-		a \le &\lambda_1^{(k)} < \lambda_1^{(k-1)}\\
-		\lambda_1^{(k-1)} < &\lambda_2^{(k)} < \lambda_2^{(k-1)}\\
-		&\vdots\\
-		\lambda _k^{(k-1)} < &\lambda _{k+1}^{(k+1)} \le b\\
+		det(A - xI) &= (\lambda _1 - x)(\lambda _2 - x) \dots (\lambda _m - x)\\
+		det(A) &= \lambda _1 \lambda _2 \dots \lambda _m\\ 
 	\end{align*}
+	Van lijn een naar twee nemen we gewoon $x$ gelijk aan nul.
+	Wat hieruit volgt is het gemakkelijkst uit te leggen via een voorbeeld:
+	Berekenen we het teken van de determinanten van de submatrices voor matrix $A$ die symmetrisch en tridiagonaal is:
+	$ det(A^{(1)}) = 1$, $det(A^{(2)}) = -2$, $det(A^{(3)}) = 4$, $det(A^{(4)}) = 6 $
+	Het teken van de eigenwaarde in $A^{(1)}$ is dan uiteraard gelijk aan die van de determinant. Bij $A^{(2)}$ weten we nu dat minstens 1 negatief moet zijn via de formule voor de determinant, en via de interlacing weten we dat er exact 1 positief en 1 negatief moet zijn. Voor $A^{(3)}$ weten we uit de formule voor determinant ofwel geen enkel ofwel 2 eigenwaarden negatief moeten zijn, en via interlacing vinden we dan dat er exact 2 negatief en 1 positief moeten zijn. Voor $A^{(4)}$ moeten er nu 2 of 4 negatief zijn volgens de formula voor de determinant, en via interlacing weten we dat er exact 2 zijn. Dit kan zo verder uitgevoerd worden voor iedere submatrix.
 	
-	We tonen dit nog eens aan in een simpel voorbeeld: 
+	\noindent We illustreren nog eens de interlacing van de eigenwaarden in een simpel voorbeeld, waarbij we de eigenwaarden via de karakteristieke polynoom bepalen zodat we kunnen inzien dat de interlacing eigenschap klopt zonder deze te gebruiken om de eigenwaarden uit te rekenen: 
 	Neem de tridiagonale symmetrische matrix A:
 	\[ A =
 		\begin{bmatrix*}
