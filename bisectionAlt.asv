@@ -1,0 +1,24 @@
+function [eigenvalues] = bisectionAlt(polynomials,a, b, maxEigenvalues)
+%Check the number of sign changes in a and b
+if (signchanges(polynomials,b) - signchanges(polynomials, a))
+    eigenvalues = [];
+else
+    eigenA = bisectionAlt(polynomials,a, (a+b)/2);
+    if size(eigenA, 1) < maxEigenvalues
+        eigenvalues = [eigenA, bisectionAlt(polynomials,(a+b)/2, b)];
+    else
+        eigenvalues = eigenA;
+    end    
+end
+end
+function signchanges(polynomials, x)
+oldValue = 1 %We start at one
+numberOfSignChanges = 0;
+for k=1:length(polynomials)
+   polynom = polynomials{k};
+   newValue = polyval(polynom, x);
+   if sign(newValue) != sign(oldValue)
+       numberOfSignChanges = numberOfSignChanges + 1;
+       
+end
+end
