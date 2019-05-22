@@ -1,16 +1,12 @@
-function [eigenvalues] = bisectionAlt(A,a, b, maxEigenvalues, tol)
+function [eigenvalues] = bisectionAlt(A,a, b, tol)
 %Check the number of sign changes in a and b
 if  (signchanges(A,b) - signchanges(A, a))<=0%Should not be less than 0, but can happen
     eigenvalues = [];
 elseif (b-a)<tol
     eigenvalues = (a+b)/2; %if multiple eigenvalues within same tolerance, assume identical
 else
-    eigenA = bisectionAlt(A,a, (a+b)/2, maxEigenvalues, tol);
-    if size(eigenA, 1) < maxEigenvalues
-        eigenvalues = [eigenA, bisectionAlt(A,(a+b)/2, b, maxEigenvalues, tol)];
-    else
-        eigenvalues = eigenA;
-    end 
+    eigenvalues = [bisectionAlt(A,a, (a+b)/2, tol), bisectionAlt(A,(a+b)/2, b, tol)];
+
 end
 end
 function numberOfSignChanges= signchanges(A, x)
@@ -32,5 +28,4 @@ function numberOfSignChanges= signchanges(A, x)
         functionk2 = functionk1;
         functionk1 = functionk0;
     end
-value = functionk0;
 end
