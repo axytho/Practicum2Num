@@ -1,8 +1,8 @@
-function [E,Res] = qr_shiftall(A)
+function [E,Res,V] = qr_shiftall(A)
 
-% function [E,Res] = qr_shiftall(A)
+% function [E,Res,V] = qr_shiftall(A)
 %
-% berekent met de QR-methode al de eigenwaarden van de matrix A
+% berekent met de QR-methode al de eigenwaarden van de symmetrische matrix A
 %
 % invoer
 % A - matrix
@@ -10,6 +10,7 @@ function [E,Res] = qr_shiftall(A)
 % uitvoer
 % E - de eigenwaarden van A
 % Res - matrix van residu's (de residu's voor element A(i,i) staan op R(i,:))
+% V - eigenvectoren
 %
 % De gebruikte methode is de QR-methode met shift. Als shift wordt het
 % (n,n)-element van A gebruikt.
@@ -24,7 +25,7 @@ if n<2
   return
 end
 
-A = hess(A);
+[V,A] = hess(A);
 Res = [];
 E = [];
 it = 1;
@@ -33,9 +34,10 @@ for i = n:-1:2
         mu = A(i,i);
         [q,r]=qr(A(1:i,1:i)-mu*eye(i));
         A(1:i,1:i) = r*q + mu*eye(i);
+        V(:,1:i) = V(:,1:i)*q; 
         Res(:,it)=abs(diag(A,-1));
         it = it +1;
     end
-    E = [E A(i,i)];
+    E = [A(i,i) E];
 end
-E = [E A(1,1)];
+E = [A(1,1) E];
