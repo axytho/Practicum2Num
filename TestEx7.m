@@ -7,7 +7,7 @@ for i = 1:numberPoints
     v = zeros(40*i,1);
     v(1) = 1;
    tic;
-   eigA = bisectionAlt(A, -10000, 10000, 10^-10);
+   eigA = bisection(A, -10000, 10000, 10^-10);
    eigenvectors = zeros(40*i, 7);
    for j=1:7
         w = (A - eigA(j) * speye(size(v, 1)))\v;
