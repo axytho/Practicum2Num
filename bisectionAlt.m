@@ -1,6 +1,6 @@
 function [eigenvalues] = bisectionAlt(polynomials,a, b, maxEigenvalues, tol)
 %Check the number of sign changes in a and b
-if  (signchanges(polynomials,b) - signchanges(polynomials, a))==0
+if  (signchanges(polynomials,b) - signchanges(polynomials, a))<=0%Should not be less than 0, but can happen
     eigenvalues = [];
 elseif (b-a)<tol
     eigenvalues = (a+b)/2; %if multiple eigenvalues within same tolerance, assume identical
@@ -10,7 +10,7 @@ else
         eigenvalues = [eigenA, bisectionAlt(polynomials,(a+b)/2, b, maxEigenvalues, tol)];
     else
         eigenvalues = eigenA;
-    end    
+    end 
 end
 end
 function numberOfSignChanges= signchanges(polynomials, x)
@@ -20,7 +20,9 @@ for k=1:length(polynomials)
    polynom = polynomials{k};
    newValue = polyval(polynom, x);
    if sign(newValue) ~= sign(oldValue)
-       numberOfSignChanges = numberOfSignChanges + 1;
+       if sign(newValue) ~=0
+           numberOfSignChanges = numberOfSignChanges + 1;
+       end
    end
    oldValue = newValue;
 end

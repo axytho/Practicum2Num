@@ -1,4 +1,0 @@
-m = 1000;
-A = sprand(m, m, 0.00005);
-b = rand(m , 1);
-v = b/n(b)
