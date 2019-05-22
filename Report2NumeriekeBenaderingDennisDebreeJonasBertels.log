@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.10.3)  22 MAY 2019 18:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.10.3)  22 MAY 2019 19:20
 entering extended mode
 **./Report2NumeriekeBenaderingDennisDebreeJonasBertels.tex
 (Report2NumeriekeBenaderingDennisDebreeJonasBertels.tex
@@ -670,29 +670,29 @@ File: QRVSBIPOLAR.JPG Graphic file (type jpg)
 Package pdftex.def Info: QRVSBIPOLAR.JPG used on input line 214.
 (pdftex.def)             Requested size: 345.00758pt x 179.40018pt.
 
-[6] <RITZ5.JPG, id=35, 702.625pt x 526.96875pt>
+[6] <RITZ5.JPG, id=35, 562.1pt x 421.575pt>
 File: RITZ5.JPG Graphic file (type jpg)
  <use RITZ5.JPG>
 Package pdftex.def Info: RITZ5.JPG used on input line 225.
-(pdftex.def)             Requested size: 345.00758pt x 179.40018pt.
+(pdftex.def)             Requested size: 344.99901pt x 179.4018pt.
 
-<RITZ10.JPG, id=36, 702.625pt x 526.96875pt>
+<RITZ10.JPG, id=36, 562.1pt x 421.575pt>
 File: RITZ10.JPG Graphic file (type jpg)
  <use RITZ10.JPG>
 Package pdftex.def Info: RITZ10.JPG used on input line 229.
-(pdftex.def)             Requested size: 345.00758pt x 179.40018pt.
+(pdftex.def)             Requested size: 344.99901pt x 179.4018pt.
 
-<RITZ20.JPG, id=37, 702.625pt x 526.96875pt>
+<RITZ20.JPG, id=37, 562.1pt x 421.575pt>
 File: RITZ20.JPG Graphic file (type jpg)
  <use RITZ20.JPG>
 Package pdftex.def Info: RITZ20.JPG used on input line 233.
-(pdftex.def)             Requested size: 345.00758pt x 179.40018pt.
+(pdftex.def)             Requested size: 344.99901pt x 179.4018pt.
 
-<RITZ100.JPG, id=38, 702.625pt x 526.96875pt>
+<RITZ100.JPG, id=38, 562.1pt x 421.575pt>
 File: RITZ100.JPG Graphic file (type jpg)
  <use RITZ100.JPG>
 Package pdftex.def Info: RITZ100.JPG used on input line 237.
-(pdftex.def)             Requested size: 345.00758pt x 179.40018pt.
+(pdftex.def)             Requested size: 344.99901pt x 179.4018pt.
  [7 <./QRVSBIPOLAR.JPG>] [8 <./RITZ5.JPG> <./RITZ10.JPG>] [9 <./RITZ20.JPG> <./
 RITZ100.JPG>]
 (Report2NumeriekeBenaderingDennisDebreeJonasBertels.aux) )
@@ -722,7 +722,7 @@ sy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
 ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program
  Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
 Output written on Report2NumeriekeBenaderingDennisDebreeJonasBertels.pdf (9 pag
-es, 278628 bytes).
+es, 272565 bytes).
 PDF statistics:
  93 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

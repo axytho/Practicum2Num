@@ -219,7 +219,7 @@ Bij de implementatie van de bisectie-methode in MATLAB kwamen we tegenover enkel
 Na grondig de code na te kijken bleek dat doordat we de polynoom als een functie bewaren, elke keer dat de functie opgeroepen wordt, 2 andere functies uit de vorige stappen worden opgeroepen om een nieuw resultaat te geven. Omdat hun functiewaarden nergens worden bewaard leidt dit tot $O(2^{n})$ operaties, waardoor het dus onmogelijk wordt om matrices groter dan dimensie 30 uit te rekenen. \\
 De oplossing voor dit probleem was de functies te vervangen door lijsten die polynomen voorstellen en deze polynomen dan samen te voegen zodat de berekening van een eigenwaarde voor een gegeven matrix weer $O(nlog(\epsilon_{mach}))$ wordt.
 \subsection{De Arnoldi methode}
-Als we de resultaten van de Arnoldi methode voor een stijgende hoeveelheid stappen plotten, dan zien we dat de resultaten (in het blauw) steeds dichter bij de cluster van eigenwaarden van de ijle matrix A (in het rood) liggen.
+Als we de resultaten van de Arnoldi methode voor een stijgende hoeveelheid stappen plotten, dan zien we dat de resultaten (in het blauw) snel naar de buitenste eigenwaarden naderen, en meer iteraties nodig hebben om bij de cluster van eigenwaarden van de ijle matrix A (in het rood) te naderen.
 \begin{figure}
 \caption{Ritz waarden (in het blauw) en eigenwaarden van A (in het rood) voor 5 stappen}
 \includegraphics[width=\textwidth, height=0.3\textheight]{RITZ5.JPG}
