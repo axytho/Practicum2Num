@@ -6,17 +6,17 @@ x = 1:m;
 y = zeros(m, 1);
 
 figure(1)
-[V, H] = Arnoldi(A,v, 25);
+[V, H] = Arnoldi(A,v, 5);
 eigH = eig(H);
 eigA = eigs(A)
 plot(real(eigA), imag(eigA), 'r*',real(eigH), imag(eigH), 'bo')
 figure(2)
-[V, H] = Arnoldi(A,v, 50);
+[V, H] = Arnoldi(A,v, 10);
 eigH = eig(H);
 eigA = eigs(A);
 plot(real(eigA), imag(eigA), 'r*',real(eigH), imag(eigH), 'bo')
 figure(3)
-[V, H] = Arnoldi(A,v, 75);
+[V, H] = Arnoldi(A,v, 20);
 eigH = eig(H)
 eigA = eigs(A);
 plot(real(eigA), imag(eigA), 'r*',real(eigH), imag(eigH), 'bo')
