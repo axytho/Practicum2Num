@@ -21,8 +21,6 @@ function numberOfSignChanges= signchanges(A, x)
     numberOfSignChanges= 0;
     for k = 1:size(A,1)
         if k > 1
-            sign(functionk0) ~= sign(functionk1)
-            sign(functionk0) ~= 0
             functionk0 = (A(k, k) - x).* functionk1 - A(k, k-1)^2 .* functionk2;
             
         else
