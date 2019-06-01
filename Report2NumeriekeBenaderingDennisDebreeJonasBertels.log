@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.10.3)  22 MAY 2019 19:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.10.3)  22 MAY 2019 20:38
 entering extended mode
 **./Report2NumeriekeBenaderingDennisDebreeJonasBertels.tex
 (Report2NumeriekeBenaderingDennisDebreeJonasBertels.tex
@@ -641,60 +641,60 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 17.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3] [4]
-Overfull \hbox (64.49643pt too wide) in paragraph at lines 192--192
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3] [4] [5]
+Overfull \hbox (64.49643pt too wide) in paragraph at lines 206--206
 []    \OT1/cmtt/m/n/10 eigenvalues = [bisection(A,a, (a+b)/2, tol), bisection(A
 ,(a+b)/2, b, tol)][] 
  []
 
-[5]
-Overfull \hbox (69.74638pt too wide) in paragraph at lines 192--192
+[6]
+Overfull \hbox (69.74638pt too wide) in paragraph at lines 206--206
 []            \OT1/cmtt/m/n/10 functionk0 = (A(k, k) - x).* functionk1 - A(k, k
 -1)^2 .* functionk2[] 
  []
 
 
-Overfull \hbox (53.99652pt too wide) in paragraph at lines 192--192
+Overfull \hbox (53.99652pt too wide) in paragraph at lines 206--206
 []        \OT1/cmtt/m/n/10 if (sign(functionk0) ~= sign(functionk1)) && (sign(f
 unctionk0) ~= 0)[] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 207--209
+Underfull \hbox (badness 10000) in paragraph at lines 221--223
 
  []
 
-<QRVSBIPOLAR.JPG, id=31, 702.625pt x 526.96875pt>
+<QRVSBIPOLAR.JPG, id=34, 702.625pt x 526.96875pt>
 File: QRVSBIPOLAR.JPG Graphic file (type jpg)
  <use QRVSBIPOLAR.JPG>
-Package pdftex.def Info: QRVSBIPOLAR.JPG used on input line 214.
+Package pdftex.def Info: QRVSBIPOLAR.JPG used on input line 228.
 (pdftex.def)             Requested size: 345.00758pt x 179.40018pt.
 
-[6] <RITZ5.JPG, id=35, 562.1pt x 421.575pt>
+<RITZ5.JPG, id=35, 562.1pt x 421.575pt>
 File: RITZ5.JPG Graphic file (type jpg)
  <use RITZ5.JPG>
-Package pdftex.def Info: RITZ5.JPG used on input line 225.
+Package pdftex.def Info: RITZ5.JPG used on input line 235.
 (pdftex.def)             Requested size: 344.99901pt x 179.4018pt.
 
 <RITZ10.JPG, id=36, 562.1pt x 421.575pt>
 File: RITZ10.JPG Graphic file (type jpg)
  <use RITZ10.JPG>
-Package pdftex.def Info: RITZ10.JPG used on input line 229.
+Package pdftex.def Info: RITZ10.JPG used on input line 239.
 (pdftex.def)             Requested size: 344.99901pt x 179.4018pt.
 
 <RITZ20.JPG, id=37, 562.1pt x 421.575pt>
 File: RITZ20.JPG Graphic file (type jpg)
  <use RITZ20.JPG>
-Package pdftex.def Info: RITZ20.JPG used on input line 233.
+Package pdftex.def Info: RITZ20.JPG used on input line 243.
 (pdftex.def)             Requested size: 344.99901pt x 179.4018pt.
 
 <RITZ100.JPG, id=38, 562.1pt x 421.575pt>
 File: RITZ100.JPG Graphic file (type jpg)
  <use RITZ100.JPG>
-Package pdftex.def Info: RITZ100.JPG used on input line 237.
+Package pdftex.def Info: RITZ100.JPG used on input line 247.
 (pdftex.def)             Requested size: 344.99901pt x 179.4018pt.
- [7 <./QRVSBIPOLAR.JPG>] [8 <./RITZ5.JPG> <./RITZ10.JPG>] [9 <./RITZ20.JPG> <./
-RITZ100.JPG>]
+ [7] [8 <./QRVSBIPOLAR.JPG>] [9 <./RITZ5.JPG> <./RITZ10.JPG>] [10 <./RITZ20.JPG
+> <./RITZ100.JPG>]
 (Report2NumeriekeBenaderingDennisDebreeJonasBertels.aux) )
 (\end occurred inside a group at level 1)
 
@@ -703,11 +703,11 @@ RITZ100.JPG>]
 Here is how much of TeX's memory you used:
  4788 strings out of 493334
  66003 string characters out of 3139252
- 152879 words of memory out of 3000000
+ 152901 words of memory out of 3000000
  8228 multiletter control sequences out of 15000+200000
  12017 words of font info for 47 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,14n,43p,768b,2093s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 40i,14n,43p,1229b,2093s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmb
 x10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Prog
@@ -721,10 +721,10 @@ sy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Prog
 ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program
  Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on Report2NumeriekeBenaderingDennisDebreeJonasBertels.pdf (9 pag
-es, 272565 bytes).
+Output written on Report2NumeriekeBenaderingDennisDebreeJonasBertels.pdf (10 pa
+ges, 272720 bytes).
 PDF statistics:
- 93 PDF objects out of 1000 (max. 8388607)
+ 96 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -11,13 +11,27 @@
 
 \pagestyle{plain}
 \title{Numerieke Modellering \& Benadering Practicum 2}
-\author{Dennis Debree \and Jonas Bertels}
+\author{Dennis Debree (r0667475) \and Jonas Bertels (r0666113)}
 
 \begin{document}
 \maketitle
 
 \section{Evoluerende kleinste kwadraten problemen}
-De eerste stap van het algoritme is de QR-factorizatie van A berekenen. Hierna moet dit niet meer rechtstreeks gebeuren. We beginnen met voor elke k het volgende te doen: We bereken de householder transformatie die moet gebeuren om de matrix $[R_{k}; M_{k}]$ om te zetten naar $[R_{k}; 0]$ waarbij 0 voor een nulmatrix staat met dezelfde dimensies als $M$. Deze householder transformatie $H$ gebruiken we dan om onze nieuwe $Q$ te berekenen door $Q$ eerst te vergroten met eenheidsmatrix van grote dxd op de diagonaal van m tot m+d, en deze dan te vermenigvuldigen met $H$. Hierna kunnen we gemakkelijk het boven-driehoekig stelsel van $Rx = Q*b$ oplossen naar x om zo het antwoord te krijgen.
+De eerste stap van het algoritme is de QR-factorizatie van A berekenen. Hierna moet dit niet meer rechtstreeks gebeuren. We beginnen met voor elke k het volgende te doen: We bereken de Givens transformatie die moet gebeuren om de matrix $[R_{k}; M_{k}]$ om te zetten naar $[R_{k}; 0]$ waarbij 0 voor een nulmatrix staat met dezelfde dimensies als $M$. Deze Givens transformatie $H$ gebruiken we dan om onze nieuwe $Q$ te berekenen door $Q$ eerst te vergroten met eenheidsmatrix van grote dxd op de diagonaal van m tot m+d, en deze dan te vermenigvuldigen met $H$. Hierna kunnen we gemakkelijk het boven-driehoekig stelsel van $Rx = Q^{*}$ oplossen naar x om zo het antwoord te krijgen. Voor het bepalen van de Givens rotatie zullen dxn operaties gebeuren, een operatie van grote order O(n) dus aangezien d zeer klein is. Hieruit de Q en R matrices halen kan op efficiënte wijze en is ook een O(n) operatie. $Q_{k}^{*}b$ is ook zeer efficiënt, en een bovendriehoekig stelsel oplossen idem. De totale complexiteit van dit algoritme blijft dus O(n) voor elke stap, en aangezien n de breedte constant blijft, is de rekencomplexiteit van elke stap constant.
+\begin{algorithm}[H]
+	\caption{Algoritme kleinste quadraten methode }
+	\KwIn{$Q_{k-1}$,$R_{k-1}$ en $b_k$}
+	\KwOut{$x_{(k)}$}
+	\Begin{
+		\For{$i = 1 \dots m$}{
+			$H_i \leftarrow$ Givens transformatie zodat $[R_{k}; M_{k}] \rightarrow [R_{k}; 0]$	\\
+			$R_{(k)} \leftarrow H_i R_{(k-1)}$ \\
+			$Q_{(k)} \leftarrow H_i Q_{(k-1)}$ \\
+		}
+		bereken $Q_{k}^{*}b$\\
+		Los het boven-driehoekig stelsel van $R_{k}x = Q_{k}^{*}b$ op\\
+	}	
+\end{algorithm}
 \section{Rayleigh quotiënt iteratie}
 	In deze sectie bespreken we enkele aspecten voor het benaderen van eigen waarden bij symmetrische vierkante matrices.
 \subsection{Numerieke stabiliteit}	
@@ -214,10 +228,6 @@ Daarna gebruikten we een grotere 40x40 matrix die willekeurig werd gegenereerd. 
 \includegraphics[width=\textwidth, height=0.3\textheight]{QRVSBIPOLAR.JPG}
 \end{figure}
 We kunnen duidelijk zien dat de hoeveelheid rekenwerk voor een de bisectiemethode lineair stijgt, terwijl de hoeveelheid werk voor de kwadratische methode kwadratisch stijgt afhankelijk van de grootte van de matrix.
-\subsubsection{Problemen met de implementatie: recursie van het polynomiaal}
-Bij de implementatie van de bisectie-methode in MATLAB kwamen we tegenover enkele interessante problemen te staan. Een eerste was dat het programma exponentieel vertraagde naarmate de matrix groter werd. Rond $n=25$ duurde een volledige oplossing al enkele seconden en $n=30$ duurde zolang dat het niet echt mogelijk was om nog grotere matrices te berekenen. Deze exponentieel stijgende rekentijd klopt natuurlijk niet met de bewering dat de bisectie methode werkt volgens $O(nlog(\epsilon_{mach}))$. \\
-Na grondig de code na te kijken bleek dat doordat we de polynoom als een functie bewaren, elke keer dat de functie opgeroepen wordt, 2 andere functies uit de vorige stappen worden opgeroepen om een nieuw resultaat te geven. Omdat hun functiewaarden nergens worden bewaard leidt dit tot $O(2^{n})$ operaties, waardoor het dus onmogelijk wordt om matrices groter dan dimensie 30 uit te rekenen. \\
-De oplossing voor dit probleem was de functies te vervangen door lijsten die polynomen voorstellen en deze polynomen dan samen te voegen zodat de berekening van een eigenwaarde voor een gegeven matrix weer $O(nlog(\epsilon_{mach}))$ wordt.
 \subsection{De Arnoldi methode}
 Als we de resultaten van de Arnoldi methode voor een stijgende hoeveelheid stappen plotten, dan zien we dat de resultaten (in het blauw) snel naar de buitenste eigenwaarden naderen, en meer iteraties nodig hebben om bij de cluster van eigenwaarden van de ijle matrix A (in het rood) te naderen.
 \begin{figure}
